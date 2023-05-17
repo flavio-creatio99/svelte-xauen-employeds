@@ -2,7 +2,12 @@
 export async function load({ fetch }) {
 	const res = await fetch('http://localhost:3001/api/v1/employeds');
 
-	const employeds = await res.json();
+	let employeds = [];
+	
+	if (res.status === 200) {
+		employeds = await res.json();
+	}
+
 
 	return { employeds };
 }
