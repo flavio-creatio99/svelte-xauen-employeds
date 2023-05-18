@@ -4,7 +4,7 @@
 
 	export let data;
 	export let form;
-	export let nameUser = 'Flavio';
+	export let nameUser = data.name ?? 'usuario';
 </script>
 
 <main class="p-3">

@@ -1,12 +1,15 @@
 import { fail, redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
-	return {};
+export async function load({ locals }) {
+	return locals['user'];
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
+	logout: async () => {
+		throw redirect(303, '/');
+	},
 	create: async ({ request }) => {
 		const form = await request.formData();
 
